@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CBFD4B4F19DA1D5200829E73 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBFD4B4E19DA1D5200829E73 /* main.cpp */; };
+		CBFD4B5719DA1D8900829E73 /* TaxonomicNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBFD4B5519DA1D8900829E73 /* TaxonomicNode.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		CBFD4B4B19DA1D5200829E73 /* RcppStudy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RcppStudy; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBFD4B4E19DA1D5200829E73 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		CBFD4B5519DA1D8900829E73 /* TaxonomicNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TaxonomicNode.cpp; sourceTree = "<group>"; };
+		CBFD4B5619DA1D8900829E73 /* TaxonomicNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaxonomicNode.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				CBFD4B4E19DA1D5200829E73 /* main.cpp */,
+				CBFD4B5519DA1D8900829E73 /* TaxonomicNode.cpp */,
+				CBFD4B5619DA1D8900829E73 /* TaxonomicNode.h */,
 			);
 			path = RcppStudy;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBFD4B5719DA1D8900829E73 /* TaxonomicNode.cpp in Sources */,
 				CBFD4B4F19DA1D5200829E73 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
