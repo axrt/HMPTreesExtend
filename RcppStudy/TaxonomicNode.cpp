@@ -9,7 +9,7 @@
 
 #include "TaxonomicNode.h"
 
-TaxonomicNode::TaxonomicNode(Ranks rank, std::string* scientificName){
+TaxonomicNode::TaxonomicNode(const Ranks rank,  std::string* const scientificName ){
     
     this->rank=rank;
     this->scientificName=scientificName;

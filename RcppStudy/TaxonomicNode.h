@@ -32,10 +32,10 @@ public:
         species
     } Ranks;
     
-    TaxonomicNode(Ranks rank, std::string* scientificName);
+    TaxonomicNode(const Ranks rank, std::string* const scientificName);
     virtual ~TaxonomicNode();
     
-    virtual TaxonomicNode* add(const TaxonomicNode* anotherNode) throw(std::invalid_argument);
+    virtual TaxonomicNode* add(const TaxonomicNode* const anotherNode) throw(std::invalid_argument);
     virtual std::string *getName()const;
     virtual Ranks getRank()const;
     virtual void setParent(TaxonomicNode* parentNode);

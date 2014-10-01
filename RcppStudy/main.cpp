@@ -33,8 +33,7 @@ int main(int argc, const char * argv[]) {
     std::cout<<(*childNode==*childNode2)<<std::endl;
     
     //std::cout<<*parentNode->getName()<<std::endl;
-    delete parentNode;
-    delete childNode;
+    testSet->clear();
     delete testSet;
     return 0;
 }
