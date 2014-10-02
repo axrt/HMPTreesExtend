@@ -9,7 +9,7 @@
 
 #include "TaxonomicNode.h"
 
-TaxonomicNode::TaxonomicNode(const Ranks rank,  std::string* const scientificName ){
+TaxonomicNode::TaxonomicNode(Ranks rank,  std::string* scientificName ){
     
     this->rank=rank;
     this->scientificName=scientificName;
@@ -47,7 +47,6 @@ bool TaxonomicNode::operator==(const TaxonomicNode& another){
 }
 
 bool TaxonomicNode::operator>(const TaxonomicNode& another){
-    std::cout<<"<"<<std::endl;
     if(this->rank!=another.rank){
         
         return this->rank>another.rank;
@@ -57,7 +56,6 @@ bool TaxonomicNode::operator>(const TaxonomicNode& another){
     
 }
 bool TaxonomicNode::operator<(const TaxonomicNode& another){
-    std::cout<<">"<<std::endl;
     if(this->rank!=another.rank){
         
         return this->rank<another.rank;
@@ -67,7 +65,7 @@ bool TaxonomicNode::operator<(const TaxonomicNode& another){
 }
 
 
-TaxonomicNode* TaxonomicNode::add(const TaxonomicNode* anotherNode) throw(std::invalid_argument){
+TaxonomicNode* TaxonomicNode::add(TaxonomicNode* anotherNode) throw(std::invalid_argument){
     
     if(this->rank!=anotherNode->rank){
         throw std::invalid_argument("Adding an invalid node!");
@@ -79,7 +77,6 @@ TaxonomicNode* TaxonomicNode::add(const TaxonomicNode* anotherNode) throw(std::i
             }
         }
     }
-    
     
     return this;
 }
@@ -99,5 +96,4 @@ void TaxonomicNode::toString() const{
 std::string* TaxonomicNode::getName()const{
     return this->scientificName;
 }
-
 

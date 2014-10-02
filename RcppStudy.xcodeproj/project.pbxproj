@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CBFD4B4F19DA1D5200829E73 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBFD4B4E19DA1D5200829E73 /* main.cpp */; };
 		CBFD4B5719DA1D8900829E73 /* TaxonomicNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBFD4B5519DA1D8900829E73 /* TaxonomicNode.cpp */; };
+		CBFD4B6319DCC85E00829E73 /* TaxonomicNodeFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBFD4B6119DCC85E00829E73 /* TaxonomicNodeFactory.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		CBFD4B4E19DA1D5200829E73 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		CBFD4B5519DA1D8900829E73 /* TaxonomicNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TaxonomicNode.cpp; sourceTree = "<group>"; };
 		CBFD4B5619DA1D8900829E73 /* TaxonomicNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaxonomicNode.h; sourceTree = "<group>"; };
+		CBFD4B6119DCC85E00829E73 /* TaxonomicNodeFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TaxonomicNodeFactory.cpp; sourceTree = "<group>"; };
+		CBFD4B6219DCC85E00829E73 /* TaxonomicNodeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaxonomicNodeFactory.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 				CBFD4B4E19DA1D5200829E73 /* main.cpp */,
 				CBFD4B5519DA1D8900829E73 /* TaxonomicNode.cpp */,
 				CBFD4B5619DA1D8900829E73 /* TaxonomicNode.h */,
+				CBFD4B6119DCC85E00829E73 /* TaxonomicNodeFactory.cpp */,
+				CBFD4B6219DCC85E00829E73 /* TaxonomicNodeFactory.h */,
 			);
 			path = RcppStudy;
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 			files = (
 				CBFD4B5719DA1D8900829E73 /* TaxonomicNode.cpp in Sources */,
 				CBFD4B4F19DA1D5200829E73 /* main.cpp in Sources */,
+				CBFD4B6319DCC85E00829E73 /* TaxonomicNodeFactory.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +214,7 @@
 		CBFD4B5319DA1D5200829E73 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -215,6 +222,7 @@
 		CBFD4B5419DA1D5200829E73 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

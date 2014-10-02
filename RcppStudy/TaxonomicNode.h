@@ -15,6 +15,7 @@
 #include <set>
 #include <string>
 #include <stdexcept>
+#include <vector>
 
 #endif /* defined(__RcppStudy__TaxonomicNode__) */
 
@@ -32,18 +33,19 @@ public:
         species
     } Ranks;
     
-    TaxonomicNode(const Ranks rank, std::string* const scientificName);
+    TaxonomicNode(Ranks rank, std::string* scientificName);
     virtual ~TaxonomicNode();
     
-    virtual TaxonomicNode* add(const TaxonomicNode* const anotherNode) throw(std::invalid_argument);
+    virtual TaxonomicNode* add(TaxonomicNode* anotherNode) throw(std::invalid_argument);
     virtual std::string *getName()const;
     virtual Ranks getRank()const;
     virtual void setParent(TaxonomicNode* parentNode);
     virtual void addChild(TaxonomicNode* childNode)const throw(std::invalid_argument);
     virtual void toString()const;
-    bool operator==(const TaxonomicNode &another);
-    bool operator>(const TaxonomicNode &another);
-    bool operator<(const TaxonomicNode &another);
+    virtual bool operator==(const TaxonomicNode &another);
+    virtual bool operator>(const TaxonomicNode &another);
+    virtual bool operator<(const TaxonomicNode &another);
+    
 protected:
     
     Ranks rank;
@@ -55,14 +57,14 @@ protected:
 };
 
 struct set_compare {
-    bool operator() (const TaxonomicNode& left, const TaxonomicNode& right) const{
-        if(left.getRank() == right.getRank()){
-            if(*left.getName()==*right.getName()){
+    bool operator() (const TaxonomicNode* left, const TaxonomicNode* right) const{
+        if(left->getRank() == right->getRank()){
+            if(*left->getName()==*right->getName()){
                 return false;
             }else{
                 return true;
             }
-        }else return (left.getRank() < right.getRank());
+        }else return (left->getRank() < right->getRank());
     }
 };
 
