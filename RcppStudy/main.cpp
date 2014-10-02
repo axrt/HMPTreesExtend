@@ -12,19 +12,19 @@ int main(int argc, const char * argv[]) {
     const TaxonomicNodeFactory tnf;
     
     std::string* parent=new std::string("parent");
-    TaxonomicNode::Ranks paretnRank=TaxonomicNode::Ranks::domain;
+    TaxonomicNode::Ranks paretnRank=TaxonomicNode::domain;
     TaxonomicNode *parentNode=new TaxonomicNode(paretnRank, parent);
     
     std::string* child=new std::string("child");
-    TaxonomicNode::Ranks childRank=TaxonomicNode::Ranks::domain;
+    TaxonomicNode::Ranks childRank=TaxonomicNode::domain;
     TaxonomicNode *childNode=new TaxonomicNode(childRank, child);
     
     std::string* child2=new std::string("child");
-    TaxonomicNode::Ranks childRank2=TaxonomicNode::Ranks::domain;
+    TaxonomicNode::Ranks childRank2=TaxonomicNode::domain;
     TaxonomicNode *childNode2=new TaxonomicNode(childRank2, child2);
 
     std::string* child3=new std::string("child");
-    TaxonomicNode::Ranks childRank3=TaxonomicNode::Ranks::domain;
+    TaxonomicNode::Ranks childRank3=TaxonomicNode::domain;
     TaxonomicNode *childNode3=tnf.newInstanceFromComponents(childRank3, child3);
     
     std::cout<<(*childNode3->getName())<<std::endl;
@@ -51,8 +51,8 @@ int main(int argc, const char * argv[]) {
     
     
     std::cout<<"----"<<std::endl;
-    std::cout<<TaxonomicNode::Ranks::domain<<std::endl;
-    std::cout<< TaxonomicNode::Ranks::domain<<std::endl;
+    std::cout<<TaxonomicNode::domain<<std::endl;
+    std::cout<< TaxonomicNode::domain<<std::endl;
 
     std::cout<<(*childNode==*childNode2)<<std::endl;
     

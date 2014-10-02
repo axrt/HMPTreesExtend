@@ -23,7 +23,8 @@ TaxonomicNode* TaxonomicNodeFactory::TaxonomicNodeFactory::newInstanceFromCompon
 TaxonomicNode* TaxonomicNodeFactory::newInstanceFromVector(std::vector<std::string*> *vec)const throw (std::invalid_argument){
     
     //Check for fails
-    if(vec->size()>TaxonomicNode::Ranks::species||vec->size()==0){
+    TaxonomicNode::Ranks lowest=TaxonomicNode::species;
+    if(vec->size() > lowest ||vec->size()==0){
         const std::string& exp ="Bad record format!";
         throw std::invalid_argument(exp);
     }
