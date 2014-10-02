@@ -23,14 +23,14 @@ int main(int argc, const char * argv[]) {
     TaxonomicNode::Ranks childRank2=TaxonomicNode::Ranks::domain;
     TaxonomicNode *childNode2=new TaxonomicNode(childRank2, child2);
 
-    std::string* child3=new std::string("child3");
+    std::string* child3=new std::string("child");
     TaxonomicNode::Ranks childRank3=TaxonomicNode::Ranks::domain;
     TaxonomicNode *childNode3=tnf.newInstanceFromComponents(childRank3, child3);
     
     std::cout<<(*childNode3->getName())<<std::endl;
     std::cout<<"----"<<std::endl;
 
-    std::set<TaxonomicNode*,set_compare> *testSet=new std::set<TaxonomicNode*,set_compare>();
+    std::set<TaxonomicNode*,TaxonomicNode::set_compare> *testSet=new std::set<TaxonomicNode*,TaxonomicNode::set_compare>();
     testSet->insert(childNode);
     std::cout<<testSet->size()<<std::endl;
     testSet->insert(parentNode);
@@ -57,9 +57,24 @@ int main(int argc, const char * argv[]) {
     std::cout<<(*childNode==*childNode2)<<std::endl;
     
     //std::cout<<*parentNode->getName()<<std::endl;
+    
+    std::cout<<"----"<<std::endl;
+    
+    
+    std::vector<std::string*>* nodesVec2=new std::vector<std::string*>();
+    nodesVec2->push_back(parent);
+    nodesVec2->push_back(child3);
+    TaxonomicNode *testHierNode2=tnf.newInstanceFromVector(nodesVec2);
+    testHierNode->add(testHierNode2);
+    
+    
+    
+    delete testHierNode;
+    delete testHierNode2;
     testSet->clear();
     delete child3;
     delete nodesVec;
+    delete nodesVec2;
     delete testSet;
     return 0;
 }

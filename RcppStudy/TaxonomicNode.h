@@ -45,26 +45,27 @@ public:
     virtual bool operator==(const TaxonomicNode &another);
     virtual bool operator>(const TaxonomicNode &another);
     virtual bool operator<(const TaxonomicNode &another);
+    struct set_compare {
+        bool operator() (const TaxonomicNode* left, const TaxonomicNode* right) const{
+            if(left->getRank() == right->getRank()){
+                if(*left->getName()==*right->getName()){
+                    return false;
+                }else{
+                    return true;
+                }
+            }else return (left->getRank() < right->getRank());
+        }
+    };
     
 protected:
     
     Ranks rank;
     std::string* scientificName;
     TaxonomicNode* parent;
-    std::set<TaxonomicNode*> *children;
+    std::set<TaxonomicNode*,set_compare> *children;
     
     
 };
 
-struct set_compare {
-    bool operator() (const TaxonomicNode* left, const TaxonomicNode* right) const{
-        if(left->getRank() == right->getRank()){
-            if(*left->getName()==*right->getName()){
-                return false;
-            }else{
-                return true;
-            }
-        }else return (left->getRank() < right->getRank());
-    }
-};
+
 

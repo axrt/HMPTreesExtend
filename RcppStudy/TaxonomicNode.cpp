@@ -13,7 +13,7 @@ TaxonomicNode::TaxonomicNode(Ranks rank,  std::string* scientificName ){
     
     this->rank=rank;
     this->scientificName=scientificName;
-    this->children=new std::set<TaxonomicNode*>();
+    this->children=new std::set<TaxonomicNode*,set_compare>();
     
 }
 TaxonomicNode::~TaxonomicNode(){
@@ -76,8 +76,10 @@ TaxonomicNode* TaxonomicNode::add(TaxonomicNode* anotherNode) throw(std::invalid
                 thisChildrenNode->add(thatChildrenNode);
             }
         }
+        for(TaxonomicNode *thatChildrenNode:*anotherNode->children){
+            this->children->insert(thatChildrenNode);
+        }
     }
-    
     return this;
 }
 
