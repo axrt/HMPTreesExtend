@@ -4,7 +4,7 @@ Title: Helps convert MLE dataframe to newick format
 Version: 0.1
 Date: 2014-09-30
 Author: Alex Tuzhikov
-Maintainer: "a.tuzhikov@med.miami.edu"
+Maintainer: Alex Tuzhikov <a.tuzhikov@med.miami.edu>
 Description: So far does not do much
 License: License?..
 Imports: Rcpp (>= 0.11.2)
