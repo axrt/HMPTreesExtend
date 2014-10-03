@@ -21,7 +21,6 @@ string* toNewick(TaxonomicNode *rootNode){
         for(TaxonomicNode* child:*rootNode->getChildren()){
             string *childrenResponce=toNewick(child);
             if(i<rootNode->getChildren()->size()-1){
-                cout<<"!"<<endl;
                 *childrenResponce+=",";
                 i++;
             }

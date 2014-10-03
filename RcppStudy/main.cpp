@@ -75,13 +75,14 @@ int main(int argc, const char * argv[]) {
     
     TaxonomicNode *testHierNode2=tnf.newInstanceFromVector(nodesVec2);
     testHierNode->add(testHierNode2);
+    delete testHierNode2;
     std::cout<<"----"<<std::endl;
     
     std::cout<<*toNewick(testHierNode)<<std::endl;
     
     
     delete testHierNode;
-    delete testHierNode2;
+
     delete childNode4;
     testSet->clear();
     delete child3;

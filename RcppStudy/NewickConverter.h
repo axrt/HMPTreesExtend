@@ -11,6 +11,9 @@
 
 #include <stdio.h>
 #include <Rcpp.h>
+#include "TaxonomicNodeFactory.h"
+#include "TaxonomicNodeHelper.h"
+
 
 RcppExport SEXP convertToNewick( SEXP hmptNames);
 

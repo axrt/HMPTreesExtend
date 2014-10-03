@@ -14,7 +14,7 @@ using namespace Rcpp;
 SEXP convertToNewick(SEXP hmptNames){
     
     List l(hmptNames);
-    vector<vector<string*>*> names;
+    vector<vector<string*>*>* names=new vector<vector<string*>*>();
     
     for(int i=0;i<l.size();i++){
         SEXP sexp=l[i];
@@ -23,11 +23,18 @@ SEXP convertToNewick(SEXP hmptNames){
         for(int j=0; j<line.size(); j++){
             cppLine->push_back(new string((string)line[j]));
         }
-        names.push_back(cppLine);
+        names->push_back(cppLine);
     }
     
+    TaxonomicNodeFactory *factory=new TaxonomicNodeFactory();
+    TaxonomicNode * tree=factory->tree(names);
+    string * tn= toNewick(tree);
     
-    cout<< names.size() <<endl;
+    delete names;
+    delete tree;
+    delete factory;
+    SEXP newickString=Rcpp::wrap(*tn);
+    delete tn;
     
-    return Rcpp::wrap(true);
+    return newickString;
 }
