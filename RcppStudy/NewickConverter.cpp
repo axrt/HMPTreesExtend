@@ -29,7 +29,7 @@ SEXP convertToNewick(SEXP hmptNames){
     TaxonomicNodeFactory *factory=new TaxonomicNodeFactory();
     TaxonomicNode * tree=factory->tree(names);
     string * tn= toNewick(tree);
-    
+    *tn+=";";
     delete names;
     delete tree;
     delete factory;
