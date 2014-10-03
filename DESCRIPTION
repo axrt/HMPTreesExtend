@@ -1,12 +1,11 @@
-Package: anRpackage
+Package: HMPTreesExtend
 Type: Package
-Title: What the package does (short line)
-Version: 1.0
+Title: Helps convert MLE dataframe to newick format
+Version: 0.1
 Date: 2014-09-30
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than
-      one line)
-License: What Licence is it under ?
+Author: Alex Tuzhikov
+Maintainer: a.tuzhikov@med.miami.edu
+Description: So far does not do much
+License: License?..
 Imports: Rcpp (>= 0.11.2)
 LinkingTo: Rcpp
