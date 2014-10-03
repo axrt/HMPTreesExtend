@@ -35,7 +35,7 @@ TaxonomicNode* TaxonomicNodeFactory::newInstanceFromVectorWithScores(vector<stri
     }
     
     //Convert all to TaxonomicNodes
-    int i=0;
+    unsigned int i=0;
     vector<TaxonomicNode*> nodes;
     for(i=0;i<vec->size();i++){
         if(scores==nullptr){
@@ -63,7 +63,7 @@ TaxonomicNode* TaxonomicNodeFactory::newInstanceFromVectorWithScores(vector<stri
 TaxonomicNode* TaxonomicNodeFactory::tree(vector<vector<string*>*> *hierRowNames)const{
     
     TaxonomicNode *first=this->newInstanceFromVector(hierRowNames->at(0));
-    for(int i=1;i<hierRowNames->size();i++){
+    for(unsigned int i=1;i<hierRowNames->size();i++){
         first->add(this->newInstanceFromVector(hierRowNames->at(i)));
     }
     
@@ -71,6 +71,6 @@ TaxonomicNode* TaxonomicNodeFactory::tree(vector<vector<string*>*> *hierRowNames
 }
 
 TaxonomicNode *TaxonomicNodeFactory::newInstanceFromComponentsWithScores(TaxonomicNode::Ranks rank, string *scientificName, vector<double>* scores)const{
-    return new TaxonomicNode::TaxonomicNode(rank,scientificName,scores);
+    return new TaxonomicNode(rank,scientificName,scores);
 }
 
