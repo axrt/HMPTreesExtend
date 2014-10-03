@@ -14,16 +14,20 @@ using namespace Rcpp;
 SEXP convertToNewick(SEXP hmptNames){
     
     List l(hmptNames);
-    StringVector s(l.size());
+    vector<vector<string*>*> names;
     
     for(int i=0;i<l.size();i++){
         SEXP sexp=l[i];
         StringVector line(sexp);
+        vector<string*> *cppLine=new vector<string*>();
         for(int j=0; j<line.size(); j++){
-            cout<< line[j] <<endl;
+            cppLine->push_back(new string((string)line[j]));
         }
-        
+        names.push_back(cppLine);
     }
+    
+    
+    cout<< names.size() <<endl;
     
     return Rcpp::wrap(true);
 }

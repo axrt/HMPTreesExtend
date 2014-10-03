@@ -17,9 +17,7 @@
 #include <stdexcept>
 #include <vector>
 
-#endif /* defined(__RcppStudy__TaxonomicNode__) */
-
-
+using namespace std;
 class TaxonomicNode{
 public:
     
@@ -33,18 +31,6 @@ public:
         species
     } Ranks;
     
-    TaxonomicNode(Ranks rank, std::string* scientificName);
-    virtual ~TaxonomicNode();
-    
-    virtual TaxonomicNode* add(TaxonomicNode* anotherNode) throw(std::invalid_argument);
-    virtual std::string *getName()const;
-    virtual Ranks getRank()const;
-    virtual void setParent(TaxonomicNode* parentNode);
-    virtual void addChild(TaxonomicNode* childNode)const throw(std::invalid_argument);
-    virtual void toString()const;
-    virtual bool operator==(const TaxonomicNode &another);
-    virtual bool operator>(const TaxonomicNode &another);
-    virtual bool operator<(const TaxonomicNode &another);
     struct set_compare {
         bool operator() (const TaxonomicNode* left, const TaxonomicNode* right) const{
             if(left->getRank() == right->getRank()){
@@ -57,15 +43,35 @@ public:
         }
     };
     
+    TaxonomicNode(Ranks rank, string* scientificName);
+    TaxonomicNode(Ranks rank, string* scientificName, vector<double>* scores);
+    virtual ~TaxonomicNode();
+    
+    virtual TaxonomicNode* add(TaxonomicNode* anotherNode) throw(invalid_argument);
+    virtual string *getName()const;
+    virtual Ranks getRank()const;
+    virtual vector<double> *getScores()const;
+    virtual void setParent(TaxonomicNode* parentNode);
+    virtual void addChild(TaxonomicNode* childNode)const throw(invalid_argument);
+    virtual void toString()const;
+    virtual bool operator==(const TaxonomicNode &another);
+    virtual bool operator>(const TaxonomicNode &another);
+    virtual bool operator<(const TaxonomicNode &another);
+    virtual set<TaxonomicNode*,set_compare>* getChildren()const;
+    
+    
 protected:
     
     Ranks rank;
-    std::string* scientificName;
+    string* scientificName;
     TaxonomicNode* parent;
-    std::set<TaxonomicNode*,set_compare> *children;
+    set<TaxonomicNode*,set_compare> *children;
+    vector<double>* scores;
     
     
 };
+
+#endif /* defined(__RcppStudy__TaxonomicNode__) */
 
 
 

@@ -10,7 +10,7 @@
 		CBFD4B4F19DA1D5200829E73 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBFD4B4E19DA1D5200829E73 /* main.cpp */; };
 		CBFD4B5719DA1D8900829E73 /* TaxonomicNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBFD4B5519DA1D8900829E73 /* TaxonomicNode.cpp */; };
 		CBFD4B6319DCC85E00829E73 /* TaxonomicNodeFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBFD4B6119DCC85E00829E73 /* TaxonomicNodeFactory.cpp */; };
-		CBFD4CE219DD998500829E73 /* NewickConverter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBFD4CE019DD998500829E73 /* NewickConverter.cpp */; };
+		CBFD5B0F19DEF43500829E73 /* TaxonomicNodeHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBFD5B0D19DEF43500829E73 /* TaxonomicNodeHelper.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -781,6 +781,8 @@
 		CBFD5B0919DDD1CA00829E73 /* Rmath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rmath.h; sourceTree = "<group>"; };
 		CBFD5B0A19DDD1CA00829E73 /* Rversion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rversion.h; sourceTree = "<group>"; };
 		CBFD5B0B19DDD1CA00829E73 /* S.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = S.h; sourceTree = "<group>"; };
+		CBFD5B0D19DEF43500829E73 /* TaxonomicNodeHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TaxonomicNodeHelper.cpp; sourceTree = "<group>"; };
+		CBFD5B0E19DEF43500829E73 /* TaxonomicNodeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaxonomicNodeHelper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -823,6 +825,8 @@
 				CBFD4B6219DCC85E00829E73 /* TaxonomicNodeFactory.h */,
 				CBFD4CE019DD998500829E73 /* NewickConverter.cpp */,
 				CBFD4CE119DD998500829E73 /* NewickConverter.h */,
+				CBFD5B0D19DEF43500829E73 /* TaxonomicNodeHelper.cpp */,
+				CBFD5B0E19DEF43500829E73 /* TaxonomicNodeHelper.h */,
 			);
 			path = RcppStudy;
 			sourceTree = "<group>";
@@ -2158,8 +2162,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBFD5B0F19DEF43500829E73 /* TaxonomicNodeHelper.cpp in Sources */,
 				CBFD4B5719DA1D8900829E73 /* TaxonomicNode.cpp in Sources */,
-				CBFD4CE219DD998500829E73 /* NewickConverter.cpp in Sources */,
 				CBFD4B4F19DA1D5200829E73 /* main.cpp in Sources */,
 				CBFD4B6319DCC85E00829E73 /* TaxonomicNodeFactory.cpp in Sources */,
 			);

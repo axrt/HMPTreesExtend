@@ -13,10 +13,7 @@
 #include "TaxonomicNode.h"
 
 
-#endif /* defined(__RcppStudy__TaxonomicNodeFactory__) */
-
-
-
+using namespace std;
 class TaxonomicNodeFactory{
     
     
@@ -25,8 +22,19 @@ public:
     TaxonomicNodeFactory();
     virtual ~TaxonomicNodeFactory();
     
-    virtual TaxonomicNode* newInstanceFromComponents(TaxonomicNode::Ranks rank, std::string* scientificName)const;
+    virtual TaxonomicNode* newInstanceFromComponents(TaxonomicNode::Ranks rank, string* scientificName)const;
     
-    virtual TaxonomicNode* newInstanceFromVector(std::vector<std::string*> *vec)const throw (std::invalid_argument);
+    virtual TaxonomicNode* newInstanceFromComponentsWithScores(TaxonomicNode::Ranks rank, string* scientificName, vector<double>* scores)const;
+    
+    virtual TaxonomicNode* newInstanceFromVectorWithScores(vector<string*> *vec,vector<double>*scores)const throw (invalid_argument);
+    
+    virtual TaxonomicNode* newInstanceFromVector(vector<string*> *vec)const throw (invalid_argument);
+    
+    
+    
+    virtual TaxonomicNode* tree(vector<vector<string*>*> *hierRowNames)const;
+
     
 };
+
+#endif /* defined(__RcppStudy__TaxonomicNodeFactory__) */

@@ -15,25 +15,34 @@ TaxonomicNodeFactory::~TaxonomicNodeFactory(){
     
 }
 
-TaxonomicNode* TaxonomicNodeFactory::TaxonomicNodeFactory::newInstanceFromComponents(TaxonomicNode::Ranks rank, std::string * scientificName)const{
+TaxonomicNode* TaxonomicNodeFactory::TaxonomicNodeFactory::newInstanceFromComponents(TaxonomicNode::Ranks rank, string * scientificName)const{
     
     return new TaxonomicNode(rank,scientificName);
 }
 
-TaxonomicNode* TaxonomicNodeFactory::newInstanceFromVector(std::vector<std::string*> *vec)const throw (std::invalid_argument){
+TaxonomicNode* TaxonomicNodeFactory::newInstanceFromVector(vector<string*> *vec)const throw (invalid_argument){
+    
+    return this->newInstanceFromVectorWithScores(vec, nullptr);
+}
+
+TaxonomicNode* TaxonomicNodeFactory::newInstanceFromVectorWithScores(vector<string *> *vec,vector<double> *scores)const throw (invalid_argument){
     
     //Check for fails
     TaxonomicNode::Ranks lowest=TaxonomicNode::species;
     if(vec->size() > lowest ||vec->size()==0){
-        const std::string& exp ="Bad record format!";
-        throw std::invalid_argument(exp);
+        const string& exp ="Bad record format!";
+        throw invalid_argument(exp);
     }
     
     //Convert all to TaxonomicNodes
     int i=0;
-    std::vector<TaxonomicNode*> nodes;
+    vector<TaxonomicNode*> nodes;
     for(i=0;i<vec->size();i++){
+        if(scores==nullptr){
         nodes.push_back(this->newInstanceFromComponents((TaxonomicNode::Ranks)i,vec->at(i)));
+        }else{
+        nodes.push_back(this->newInstanceFromComponentsWithScores((TaxonomicNode::Ranks)i,vec->at(i), scores));
+        }
     }
     
     //Set self as parent
@@ -50,3 +59,18 @@ TaxonomicNode* TaxonomicNodeFactory::newInstanceFromVector(std::vector<std::stri
     //return the head
     return nodes.at(0);
 }
+
+TaxonomicNode* TaxonomicNodeFactory::tree(vector<vector<string*>*> *hierRowNames)const{
+    
+    TaxonomicNode *first=this->newInstanceFromVector(hierRowNames->at(0));
+    for(int i=1;i<hierRowNames->size();i++){
+        first->add(this->newInstanceFromVector(hierRowNames->at(i)));
+    }
+    
+    return first;
+}
+
+TaxonomicNode *TaxonomicNodeFactory::newInstanceFromComponentsWithScores(TaxonomicNode::Ranks rank, string *scientificName, vector<double>* scores)const{
+    return new TaxonomicNode::TaxonomicNode(rank,scientificName,scores);
+}
+

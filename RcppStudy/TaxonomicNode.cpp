@@ -13,9 +13,18 @@ TaxonomicNode::TaxonomicNode(Ranks rank,  std::string* scientificName ){
     
     this->rank=rank;
     this->scientificName=scientificName;
-    this->children=new std::set<TaxonomicNode*,set_compare>();
-    
+    this->children=new set<TaxonomicNode*,set_compare>();
+    this->scores=nullptr;
 }
+
+TaxonomicNode::TaxonomicNode(Ranks rank,  std::string* scientificName, vector<double>*scores){
+    
+    this->rank=rank;
+    this->scientificName=scientificName;
+    this->children=new set<TaxonomicNode*,set_compare>();
+    this->scores=scores;
+}
+
 TaxonomicNode::~TaxonomicNode(){
     if (this->rank) {
         ~this->rank;
@@ -35,7 +44,7 @@ TaxonomicNode::Ranks TaxonomicNode::getRank()const{
 }
 
 bool TaxonomicNode::operator==(const TaxonomicNode& another){
-    std::cout<<"=="<<std::endl;
+    cout<<"=="<<endl;
     if (this->rank==another.rank) {
         
         if(*this->scientificName==*another.scientificName){
@@ -65,10 +74,10 @@ bool TaxonomicNode::operator<(const TaxonomicNode& another){
 }
 
 
-TaxonomicNode* TaxonomicNode::add(TaxonomicNode* anotherNode) throw(std::invalid_argument){
+TaxonomicNode* TaxonomicNode::add(TaxonomicNode* anotherNode) throw(invalid_argument){
     
     if(this->rank!=anotherNode->rank){
-        throw std::invalid_argument("Adding an invalid node!");
+        throw invalid_argument("Adding an invalid node!");
     }
     if(*this->scientificName==*anotherNode->scientificName){
         for(TaxonomicNode* thisChildrenNode:*this->children){
@@ -92,10 +101,18 @@ void TaxonomicNode::addChild(TaxonomicNode* childNode) const throw(std::invalid_
 }
 
 void TaxonomicNode::toString() const{
-    std::cout<<""<<std::endl;
+    cout<<""<<endl;
 }
 
-std::string* TaxonomicNode::getName()const{
+string* TaxonomicNode::getName()const{
     return this->scientificName;
+}
+
+vector<double> *TaxonomicNode::getScores()const{
+    return this->scores;
+}
+
+set<TaxonomicNode*,TaxonomicNode::set_compare> *TaxonomicNode::getChildren()const{
+    return this->children;
 }
 
