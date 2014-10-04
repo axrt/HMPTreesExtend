@@ -1,6 +1,6 @@
 as.newick <- function(df,sep="."){
   
-  if(!class(df)=="dataframe"){
+  if(!class(df)=="data.frame"){
     stop("Dataframe expected with \"df\"!");
   }
   
