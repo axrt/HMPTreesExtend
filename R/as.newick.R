@@ -5,7 +5,7 @@ as.newick <- function(df,sep="."){
   }
   
   tree.rows<-row.names(df)
-  tax.list<-strsplit(x = tree.rows,split = sep,fixed = TRUE,perl = TRUE,useBytes = FALSE)
+  tax.list<-strsplit(x = tree.rows,split = sep,fixed = TRUE,useBytes = FALSE)
   
   .Call( "convertToNewick",tax.list)
 }
