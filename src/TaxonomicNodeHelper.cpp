@@ -38,7 +38,6 @@ string* toItol(TaxonomicNode *rootNode){
   string sep="|";
   
   string* itol=new string();
-  *itol+=*rootNode->getName();
   if(rootNode->getChildren()->size()>0){
     
     for(TaxonomicNode* child:*rootNode->getChildren()){
