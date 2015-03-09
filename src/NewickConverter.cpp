@@ -11,9 +11,9 @@
 
 using namespace std;
 using namespace Rcpp;
-SEXP convertToNewick(SEXP hmptNames){
-    
-    List l(hmptNames);
+
+vector<vector<string*>*>* toNames (SEXP hmptNames){
+   List l(hmptNames);
     vector<vector<string*>*>* names=new vector<vector<string*>*>();
     
     for(int i=0;i<l.size();i++){
@@ -25,7 +25,27 @@ SEXP convertToNewick(SEXP hmptNames){
         }
         names->push_back(cppLine);
     }
+    return(names);
+}
+
+SEXP convertToItol(SEXP hmptNames){
     
+    vector<vector<string*>*>* names=toNames(hmptNames);
+    TaxonomicNodeFactory *factory=new TaxonomicNodeFactory();
+    TaxonomicNode * tree=factory->tree(names);
+    string * tn= toItol(tree);
+    delete names;
+    delete tree;
+    delete factory;
+    SEXP itolString=Rcpp::wrap(*tn);
+    delete tn;
+    
+    return itolString;
+}
+
+SEXP convertToNewick(SEXP hmptNames){
+    
+    vector<vector<string*>*>* names=toNames(hmptNames);
     TaxonomicNodeFactory *factory=new TaxonomicNodeFactory();
     TaxonomicNode * tree=factory->tree(names);
     string * tn= toNewick(tree);

@@ -32,3 +32,26 @@ string* toNewick(TaxonomicNode *rootNode){
     }
     return newick;
 }
+
+string* toItol(TaxonomicNode *rootNode){
+  
+  string sep="|";
+  
+  string* itol=new string();
+  *itol+=*rootNode->getName();
+  if(rootNode->getChildren()->size()>0){
+    
+    for(TaxonomicNode* child:*rootNode->getChildren()){
+      *itol+=*child->getName();
+      *itol+="|";
+    }
+    *itol=itol->substr(0,itol->length()-1);
+    *itol+="\t";
+    *itol+=*rootNode->getName();
+    *itol+="\n";
+    for(TaxonomicNode* child:*rootNode->getChildren()){
+      *itol+=*toItol(child);
+    }
+  }
+  return itol;
+}

@@ -16,4 +16,6 @@ using namespace std;
 
 string* toNewick(TaxonomicNode *rootNode);
 
+string* toItol(TaxonomicNode *rootNode);
+
 #endif /* defined(__RcppStudy__TaxonomicNodeHelper__) */

@@ -17,5 +17,7 @@
 
 RcppExport SEXP convertToNewick( SEXP hmptNames);
 
+RcppExport SEXP convertToItol( SEXP hmptNames);
+
 #endif /* defined(__RcppStudy__NewickConverter__) */
 

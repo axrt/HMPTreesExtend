@@ -1,0 +1,11 @@
+as.itol <- function(df,sep="."){
+  
+  if(!class(df)=="data.frame"){
+    stop("Dataframe expected with \"df\"!");
+  }
+  
+  tree.rows<-row.names(df)
+  tax.list<-strsplit(x = tree.rows,split = sep,fixed = TRUE,useBytes = FALSE)
+  
+  .Call( "convertToItol",tax.list)
+}
