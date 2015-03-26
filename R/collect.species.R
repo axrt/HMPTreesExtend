@@ -1,12 +1,12 @@
-collect.species<-function(files){
+collect.species<-function(sys.command,files){
   species.set<-c()
   for (s in files){
-    df<-find.species(s)
+    df<-find.species(sys.command,s)
     species.set<-get.full.species.set(df,species.set)
   }
   df<-data.frame(row.names = species.set)
   for (s in files){
-    sample.species<-find.species(s)
+    sample.species<-find.species(sys.command,s)
     absent<-setdiff(y=rownames(sample.species),x = rownames(df))
     absent.df<-data.frame(row.names = absent,rep(x = 0,times = length(absent)))
     colnames(absent.df)<-c("V2")
