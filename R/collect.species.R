@@ -18,7 +18,7 @@ collect.species<-function(files){
 }
 
 find.species<-function(sys.command,file){
-  text.representation<-system(command = paste(sys.command,collect.files(file),sep = " "),intern = TRUE)
+  text.representation<-system(command = paste(sys.command,file,sep = " "),intern = TRUE)
   tc<-textConnection(text.representation)
   tbl<-read.table(tc,header = FALSE,sep = "\t",row.names = 1)
   close(con = tc)
